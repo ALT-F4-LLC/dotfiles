@@ -1,4 +1,4 @@
-# awesome-streamerrc/TheAltF4Stream
+# dotfiles
 
 Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitch.tv/thealtf4stream) on Twitch.
 
@@ -42,8 +42,8 @@ Two symlinks must be created in place of the local Neovim configuration paths:
 - second is the module folder with source code
 
 ```shell
-ln -s <root-path>/awesome-streamerrc/TheAltF4Stream/nvim/init.lua ~/.config/nvim/init.lua
-ln -s <root-path>/awesome-streamerrc/TheAltF4Stream/nvim/lua/TheAltF4Stream ~/.config/nvim/lua/TheAltF4Stream
+ln -s <root-path>/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+ln -s <root-path>/dotfiles/nvim/lua/TheAltF4Stream ~/.config/nvim/lua/TheAltF4Stream
 ```
 
 Once both symlinks are created install all plugins with `:PackerSync` in Neovim.
@@ -57,7 +57,7 @@ To find keymaps for any given plugin check the module file for it in `./nvim/lua
 One symlinks must be created in place of the local `oh-my-tmux` configuration paths:
 
 ```shell
-ln -s <root-path>/awesome-streamerrc/TheAltF4Stream/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
+ln -s <root-path>/dotfiles/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 ```
 
 ### Oh-My-Zsh
@@ -65,7 +65,7 @@ ln -s <root-path>/awesome-streamerrc/TheAltF4Stream/oh-my-tmux/.tmux.conf.local 
 One symlink must be created in place of the local `oh-my-zsh` configuration paths:
 
 ```shell
-ln -s <root-path>/awesome-streamerrc/TheAltF4Stream/oh-my-zsh/.zshrc ~/.zshrc
+ln -s <root-path>/dotfiles/oh-my-zsh/.zshrc ~/.zshrc
 ```
 
-[preview]: https://github.com/erkrnt/awesome-streamerrc/blob/master/TheAltF4Stream/TheAltF4Stream.gif "The Alt-F4 Stream"
+[preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
