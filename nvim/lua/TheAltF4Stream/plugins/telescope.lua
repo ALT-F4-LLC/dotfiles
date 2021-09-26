@@ -25,7 +25,6 @@ local function init()
 
   -- Extensions
   map('n', '<leader>fs', '<CMD>lua require("telescope").extensions["session-lens"].search_session()<CR>', options)
-  map('n', '<leader>fw', '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', options)
 end
 
 return {
