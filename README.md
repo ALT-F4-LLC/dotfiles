@@ -19,8 +19,6 @@ The following dependencies must be installed before setup:
 - [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh): Shell Environment
 - [Packer](https://github.com/wbthomason/packer.nvim): Package Manager
 - [Ripgrep](https://github.com/BurntSushi/ripgrep): Search
-- [Taskwarrior](https://github.com/GothenburgBitFactory/taskwarrior): Task Manager
-- [Taskwarrior TUI](https://github.com/kdheepak/taskwarrior-tui): Task Manager (Terminal UI)
 - [Tmux](https://github.com/tmux/tmux): Terminal Multiplexer
 - [Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH): Shell
 - [Zsh-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions): Shell Auto Suggestions
