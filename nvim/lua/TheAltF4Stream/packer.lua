@@ -123,6 +123,12 @@ local function packer_startup()
     end
   }
   use {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require("lsp-colors").setup()
+    end
+  }
+  use {
     'voldikss/vim-floaterm',
     config = function ()
       require'TheAltF4Stream.plugins.floaterm'.init()
