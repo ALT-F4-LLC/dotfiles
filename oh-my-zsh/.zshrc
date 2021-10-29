@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# CARGO
 export CARGO_PATH="$HOME/.cargo/bin"
 
 # FUSION, HA!
@@ -14,6 +15,9 @@ export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/
 
 # PATH
 export PATH="$FUSION_PATH:$VSCODE_PATH:$CARGO_PATH:$GOPATH/bin:/usr/local/sbin:$PATH"
+
+# PIP
+export PIP_REQUIRE_VIRTUALENV=true
 
 # VAGRANT
 export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
@@ -154,11 +158,17 @@ alias ssh='TERM="xterm-256color" ssh'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e /usr/share/nvm/init-nvm.sh && source /usr/share/nvm/init-nvm.sh
 
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/erikreinert/Development/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/erikreinert/Development/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/Development/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Development/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/erikreinert/Development/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/erikreinert/Development/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/Development/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Development/google-cloud-sdk/completion.zsh.inc"; fi
 
 # The next line sources a private environment file if it exists
+if [ -f "$HOME/.zsh_local" ]; then . "$HOME/.zsh_local"; fi
 if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
+
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
