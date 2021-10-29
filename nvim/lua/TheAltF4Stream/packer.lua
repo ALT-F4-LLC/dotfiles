@@ -83,6 +83,7 @@ local function packer_startup()
   }
 
   -- Git Support
+  -- TODO: evaluate how often I am using this (10/19/21)
   use 'rhysd/git-messenger.vim'
   use {
     'lewis6991/gitsigns.nvim',
@@ -95,6 +96,7 @@ local function packer_startup()
   }
 
   -- Sessions
+  -- TODO: evaluate how often I am using this (10/19/21)
   use {
     'rmagatti/auto-session',
     config = function ()
@@ -113,7 +115,19 @@ local function packer_startup()
   }
   use 'preservim/nerdcommenter'
   use 'romgrk/nvim-treesitter-context'
-  use 'kyazdani42/nvim-web-devicons'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require"trouble".setup()
+    end
+  }
+  use {
+    'folke/lsp-colors.nvim',
+    config = function()
+      require("lsp-colors").setup()
+    end
+  }
   use {
     'voldikss/vim-floaterm',
     config = function ()
