@@ -4,17 +4,23 @@
 # CARGO
 export CARGO_PATH="$HOME/.cargo/bin"
 
+# GO
+export GOPATH="$HOME/Development/languages/go"
+
 # FUSION, HA!
 export FUSION_PATH="/Library/Application Support/VMware Fusion"
 
-# GO
-export GOPATH="$HOME/Development/go"
+# PYENV
+export PYENV_PATH="$HOME/.pyenv/bin"
 
 # VSCODE
 export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # PATH
-export PATH="$FUSION_PATH:$VSCODE_PATH:$CARGO_PATH:$GOPATH/bin:/usr/local/sbin:$PATH"
+export PATH="$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
+
+# HELM
+export HELM_EXPERIMENTAL_OCI=1
 
 # PIP
 export PIP_REQUIRE_VIRTUALENV=true
@@ -24,9 +30,6 @@ export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# HELM
-export HELM_EXPERIMENTAL_OCI=1
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
