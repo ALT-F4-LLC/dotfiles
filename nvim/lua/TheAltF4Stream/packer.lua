@@ -47,19 +47,24 @@ local function packer_startup()
 
   -- Completion
   use {
-    'hrsh7th/nvim-compe',
+    'hrsh7th/nvim-cmp',
     requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'ray-x/cmp-treesitter',
       {
-        'erkrnt/compe-tabnine',
-        run = './install.sh'
+        'tzachar/cmp-tabnine',
+        run = "./install.sh",
       },
-      'wellle/tmux-complete.vim',
-      'L3MON4D3/LuaSnip',
       'onsails/lspkind-nvim'
     },
     config = function ()
-      require'TheAltF4Stream.plugins.compe'.init()
-      require'TheAltF4Stream.plugins.compe_tabnine'.init()
+      require'TheAltF4Stream.plugins.cmp'.init()
+      require'TheAltF4Stream.plugins.cmp_tabnine'.init()
       require'TheAltF4Stream.plugins.lspkind'.init()
     end
   }
@@ -85,6 +90,7 @@ local function packer_startup()
   -- Git Support
   -- TODO: evaluate how often I am using this (10/19/21)
   use 'rhysd/git-messenger.vim'
+
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -106,15 +112,20 @@ local function packer_startup()
 
   -- Utilities
   use 'unblevable/quick-scope'
+
   use 'lukas-reineke/indent-blankline.nvim'
+
   use {
     'hoob3rt/lualine.nvim',
     config = function ()
       require'TheAltF4Stream.plugins.lualine'.init()
     end
   }
+
   use 'preservim/nerdcommenter'
+
   use 'romgrk/nvim-treesitter-context'
+
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -122,24 +133,27 @@ local function packer_startup()
       require"trouble".setup()
     end
   }
+
   use {
     'folke/lsp-colors.nvim',
     config = function()
       require("lsp-colors").setup()
     end
   }
+
   use {
     'voldikss/vim-floaterm',
     config = function ()
       require'TheAltF4Stream.plugins.floaterm'.init()
     end
   }
-  use {
-    'takac/vim-hardtime', -- see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making
-    config = function ()
-      require'TheAltF4Stream.plugins.hardtime'.init()
-    end
-  }
+
+  --[[use {]]
+    --[['takac/vim-hardtime', -- see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making]]
+    --[[config = function ()]]
+      --[[require'TheAltF4Stream.plugins.hardtime'.init()]]
+    --[[end]]
+  --[[}]]
 
   -- VimWiki + Zettelkasten
   use {
