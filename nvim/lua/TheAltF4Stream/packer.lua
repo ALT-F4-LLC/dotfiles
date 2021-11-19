@@ -111,7 +111,7 @@ local function packer_startup()
   }
 
   -- Utilities
-  use 'unblevable/quick-scope'
+  use 'unblevable/quick-scope' -- promote use of f<key>
 
   use 'lukas-reineke/indent-blankline.nvim'
 

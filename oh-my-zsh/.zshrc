@@ -4,11 +4,11 @@
 # CARGO
 export CARGO_PATH="$HOME/.cargo/bin"
 
-# GO
-export GOPATH="$HOME/Development/languages/go"
-
 # FUSION, HA!
 export FUSION_PATH="/Library/Application Support/VMware Fusion"
+
+# GO
+export GOPATH="$HOME/Development/languages/go"
 
 # PYENV
 export PYENV_PATH="$HOME/.pyenv/bin"
@@ -24,6 +24,9 @@ export HELM_EXPERIMENTAL_OCI=1
 
 # PIP
 export PIP_REQUIRE_VIRTUALENV=true
+
+# PULUMI
+export PULUMI_K8S_SUPPRESS_HELM_HOOK_WARNINGS="true"
 
 # VAGRANT
 export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
@@ -153,7 +156,7 @@ n ()
 }
 
 # ALIASES
-alias cat='bat --theme="base16"'
+alias cat='bat --paging=never --theme="base16"'
 alias ll='n -Hde'
 alias ssh='TERM="xterm-256color" ssh'
 
@@ -173,5 +176,6 @@ if [ -f "$HOME/Development/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME
 if [ -f "$HOME/.zsh_local" ]; then . "$HOME/.zsh_local"; fi
 if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
 
+# Pyenv
 eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+eval "$(pyenv virtualenv-init -)"
