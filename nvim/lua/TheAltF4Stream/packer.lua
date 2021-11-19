@@ -148,12 +148,12 @@ local function packer_startup()
     end
   }
 
-  --[[use {]]
-    --[['takac/vim-hardtime', -- see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making]]
-    --[[config = function ()]]
-      --[[require'TheAltF4Stream.plugins.hardtime'.init()]]
-    --[[end]]
-  --[[}]]
+  use {
+    'takac/vim-hardtime', -- see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making
+    config = function ()
+      require'TheAltF4Stream.plugins.hardtime'.init()
+    end
+  }
 
   -- VimWiki + Zettelkasten
   use {
