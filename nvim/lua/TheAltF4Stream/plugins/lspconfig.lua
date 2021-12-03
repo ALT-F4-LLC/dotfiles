@@ -62,17 +62,21 @@ end
 
 local function init()
   local lspconfig_servers = {
+    "cssls",
+    "elixirls",
+    "graphql",
+    "jsonls",
+    'jsonnet_ls',
+    "sqlls",
+  }
+
+  local lspcontainer_servers = {
     "bashls",
-    "cssls", -- tbi
     "dockerls",
-    "elixirls", -- tbi
     "gopls",
-    "graphql", -- tbi
     "html",
-    "jsonls", -- tbi
     "pylsp",
     "rust_analyzer",
-    "sqlls", -- tbi
     "sumneko_lua",
     "terraformls",
     "tsserver",
@@ -80,6 +84,12 @@ local function init()
   }
 
   for _, server in pairs(lspconfig_servers) do
+    local config = make_config()
+
+    require'lspconfig'[server].setup(config)
+  end
+
+  for _, server in pairs(lspcontainer_servers) do
     local config = make_config()
 
     require'TheAltF4Stream.plugins.lspcontainers'.setup(config, server)

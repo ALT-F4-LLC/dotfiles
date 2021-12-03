@@ -179,3 +179,6 @@ if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
 # Pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
