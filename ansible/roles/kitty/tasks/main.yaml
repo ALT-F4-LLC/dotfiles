@@ -1,0 +1,18 @@
+---
+- name: Link kitty.conf
+  ansible.builtin.file:
+    src: "{{ ansible_user_dir }}/Development/repository/github.com/ALT-F4-LLC/dotfiles/kitty/kitty.conf"
+    dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
+    state: link
+
+- name: Link kitty_tokyonight_night.conf
+  ansible.builtin.file:
+    src: "{{ ansible_user_dir }}/Development/repository/github.com/ALT-F4-LLC/dotfiles/kitty/kitty_tokyonight_night.conf"
+    dest: "{{ ansible_user_dir }}/.config/kitty/kitty_tokyonight_night.conf"
+    state: link
+
+- name: Link kitty_tokyonight_storm.conf
+  ansible.builtin.file:
+    src: "{{ ansible_user_dir }}/Development/repository/github.com/ALT-F4-LLC/dotfiles/kitty/kitty_tokyonight_storm.conf"
+    dest: "{{ ansible_user_dir }}/.config/kitty/kitty_tokyonight_storm.conf"
+    state: link
