@@ -1,0 +1,12 @@
+---
+- name: Set user.email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: erik@altf4.email
+
+- name: Set user.name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: Erik Reinert
