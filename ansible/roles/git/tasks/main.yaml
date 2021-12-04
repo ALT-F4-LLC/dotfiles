@@ -1,4 +1,28 @@
 ---
+- name: Set diff.colorMoved
+  community.general.git_config:
+    name: diff.colorMoved
+    scope: global
+    value: zebra
+
+- name: Set fetch.prune
+  community.general.git_config:
+    name: fetch.prune
+    scope: global
+    value: true
+
+- name: Set pull.rebase
+  community.general.git_config:
+    name: pull.rebase
+    scope: global
+    value: true
+
+- name: Set rebase.autoStash
+  community.general.git_config:
+    name: rebase.autoStash
+    scope: global
+    value: true
+
 - name: Set user.email
   community.general.git_config:
     name: user.email
