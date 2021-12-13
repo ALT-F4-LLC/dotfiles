@@ -11,13 +11,14 @@ export FUSION_PATH="/Library/Application Support/VMware Fusion"
 export GOPATH="$HOME/Development/languages/go"
 
 # PYENV
-export PYENV_PATH="$HOME/.pyenv/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_PATH="$PYENV_ROOT/bin"
 
 # VSCODE
 export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # PATH
-export PATH="$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
+export PATH="$PYENV_SHIMS:$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
 
 # HELM
 export HELM_EXPERIMENTAL_OCI=1
@@ -181,4 +182,6 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
+export PYENV_SHIMS=$(pyenv root)/shims
+export PATH=$PYENV_SHIMS:$HOME/.pulumi/bin:$PATH
+
