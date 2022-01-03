@@ -1,0 +1,6 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - tmux
+    state: latest

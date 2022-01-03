@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  roles:
+    - i3
+    - zsh
+    - oh-my-zsh
+    - tmux
+    - oh-my-tmux
+    - git
+    - k9s
+    - { role: neovim, version: "2f31e7b88b1147fa5f48b1ab1d140cb8ccc1e801" }
+    - { role: feh, file: "rockets.webp" }
