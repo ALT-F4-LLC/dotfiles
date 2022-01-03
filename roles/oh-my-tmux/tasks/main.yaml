@@ -1,0 +1,22 @@
+---
+- name: Clone
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.tmux"
+    repo: https://github.com/gpakosz/.tmux.git
+    single_branch: yes
+    update: yes
+    version: master
+  register: clone
+
+- name: Link .tmux.conf
+  ansible.builtin.file:
+    src: "{{ ansible_user_dir }}/.tmux/.tmux.conf"
+    dest: "{{ ansible_user_dir }}/.tmux.conf"
+    state: link
+
+- name: Copy .tmux.conf.local
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.tmux.conf.local"
+    src: ".tmux.conf.local"

@@ -1,6 +1,0 @@
----
-- name: Link skin.yaml
-  ansible.builtin.file:
-    src: "{{ ansible_user_dir }}/Development/repository/github.com/ALT-F4-LLC/dotfiles/k9s/skin.yml"
-    dest: "{{ ansible_user_dir }}/.config/k9s/skin.yaml"
-    state: link
