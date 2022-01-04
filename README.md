@@ -9,7 +9,7 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 
 1. Dependencies must be installed before setup.
 
-- [ArchLabs Linux with i3-gaps](https://archlabslinux.com/) (OS install)
+- [Manjaro i3 Edition](https://manjaro.org/download/#i3) (OS install)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
 2. Current user SSH public key must be added to `~/.ssh/authorized_keys`.
@@ -19,12 +19,12 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 
 This playbook requires an external `values.yaml` file to be included as a runtime argument. An example runtime command is included below in the usage section.
 
-| Name           | Value                                    |
-| -------------- | ---------------------------------------- |
-| feh_file       | required (filename from roles/feh/files) |
-| git_user_email | required                                 |
-| git_user_name  | required                                 |
-| neovim_version | optional                                 |
+| Name                 | Value                                |
+| -------------------- | ------------------------------------ |
+| git_user_email       | required                             |
+| git_user_name        | required                             |
+| nitrogen_background  | required (from roles/nitrogen/files) |
+| neovim_version       | optional                             |
 
 ### Example
 
@@ -44,7 +44,7 @@ neovim_version: master
 Run this repository as an Ansible playbook to setup/update the environment:
 
 ```shell
-ansible-playbook --inventory ./inventory.yaml --extra-vars @values.yaml main.yaml
+ansible-playbook --extra-vars @values.yaml main.yaml
 ```
 
 [preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
