@@ -1,0 +1,22 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - open-vm-tools
+    state: latest
+  become: yes
+
+- name: Enable vmtoolsd
+  ansible.builtin.systemd:
+    enabled: yes
+    name: vmtoolsd
+    state: started
+  become: yes
+
+- name: Enable vmware-vmblock-fuse
+  ansible.builtin.systemd:
+    enabled: yes
+    name: vmware-vmblock-fuse
+    state: started
+  become: yes
+

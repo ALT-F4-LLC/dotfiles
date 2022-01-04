@@ -1,0 +1,7 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - bat
+    state: latest
+  become: yes
