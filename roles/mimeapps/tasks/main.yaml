@@ -1,0 +1,6 @@
+---
+- name: Set Firefox
+  ansible.builtin.replace:
+    path: "{{ ansible_user_dir }}/.config/mimeapps.list"
+    regexp: 'userapp-Pale Moon'
+    replace: 'firefox'
