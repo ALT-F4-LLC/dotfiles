@@ -12,7 +12,7 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 - [ArchLabs Linux with i3-gaps](https://archlabslinux.com/) (OS install)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
-2. Current user SSH public key must be added to `authorized_keys`.
+2. Current user SSH public key must be added to `~/.ssh/authorized_keys`.
 3. SSH service must be started and listening on port `22` (inventory.yaml for more).
 
 ## Extra Vars
@@ -43,7 +43,7 @@ neovim_version: master
 
 Run this repository as an Ansible playbook to setup/update the environment:
 
-```bash
+```shell
 ansible-playbook --inventory ./inventory.yaml --extra-vars @values.yaml main.yaml
 ```
 
