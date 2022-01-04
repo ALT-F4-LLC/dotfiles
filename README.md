@@ -4,66 +4,36 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 
 ![The Alt-F4 Stream][preview]
 
+
 ## Requirements
 
-The following dependencies must be installed before setup:
+1. Dependencies must be installed before setup.
 
-- [Bottom](https://github.com/clementtsang/bottom): Host Metrics + Statistics
-- [Docker Engine](https://docs.docker.com/engine/install/): LSPContainers Integration
-- [k9s](https://k9scli.io/): Kubernetes Integration
-- [Lazydocker](https://github.com/jesseduffield/lazydocker): Docker Integration
-- [Lazygit](https://github.com/jesseduffield/lazygit): Git Integration
-- [Neovim (nightly)](https://github.com/neovim/neovim/releases/tag/nightly): Editor
-- [Nnn](https://github.com/jarun/nnn): File Manager
-- [Oh-My-Tmux](https://github.com/gpakosz/.tmux): Terminal Multiplexer Environment
-- [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh): Shell Environment
-- [Packer](https://github.com/wbthomason/packer.nvim): Package Manager
-- [Ripgrep](https://github.com/BurntSushi/ripgrep): Search
-- [Tmux](https://github.com/tmux/tmux): Terminal Multiplexer
-- [Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH): Shell
-- [Zsh-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions): Shell Auto Suggestions
-- [Zsh-Completions](https://github.com/zsh-users/zsh-completions): Shell Auto Completions
-- [Zsh-Syntax-Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting): Shell Syntax Highlighting
-- [Zsh-Z](https://github.com/agkozak/zsh-z): Shell Quick Navigation
+- [Arch Linux](https://archlabslinux.com/)
+- [i3-gaps](https://github.com/Airblader/i3/wiki/installation)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
-## Setup
+2. SSH public key must be added to `authorized_keys`.
+3. SSH service must be started and listening on port `22` (invetory.yaml for more).
 
-- Neovim
-- Oh-My-Tmux
-- Oh-My-Zsh
+## Configuration
 
-### Neovim
+This playbook requires an external `values.yaml` file to be included as a runtime argument. An example runtime command is included below in the usage section.
 
-Two symlinks must be created in place of the local Neovim configuration paths:
+| Name           | Value                                      |
+| -------------- | ------------------------------------------ |
+| feh_file       | <required> (filename from roles/feh/files) |
+| git_user_email | <required>                                 |
+| git_user_name  | <required>                                 |
+| neovim_version | <optional>                                 |
 
-- first is the configuration entrypoint
-- second is the module folder with source code
 
-```shell
-ln -s <root-path>/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
-ln -s <root-path>/dotfiles/nvim/lua/TheAltF4Stream ~/.config/nvim/lua/TheAltF4Stream
+## Useage
+
+Run this repository as an Ansible playbook to setup/update the environment:
+
 ```
-
-Once both symlinks are created install all plugins with `:PackerSync` in Neovim.
-
-#### Keymaps
-
-To find keymaps for any given plugin check the module file for it in `./nvim/lua/TheAltF4Stream/plugins`.
-
-### Oh-My-Tmux
-
-One symlinks must be created in place of the local `oh-my-tmux` configuration paths:
-
-```shell
-ln -s <root-path>/dotfiles/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
-```
-
-### Oh-My-Zsh
-
-One symlink must be created in place of the local `oh-my-zsh` configuration paths:
-
-```shell
-ln -s <root-path>/dotfiles/oh-my-zsh/.zshrc ~/.zshrc
+ansible-playbook -i ./inventory.yaml -e @values.yaml main.yaml
 ```
 
 [preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"

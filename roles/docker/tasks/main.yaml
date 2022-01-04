@@ -2,6 +2,7 @@
 - name: Install
   ansible.builtin.package:
     name:
-      - tmux
+      - docker
+      - docker-compose
     state: latest
   become: yes

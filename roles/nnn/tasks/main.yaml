@@ -2,6 +2,6 @@
 - name: Install
   ansible.builtin.package:
     name:
-      - tmux
+      - nnn
     state: latest
   become: yes

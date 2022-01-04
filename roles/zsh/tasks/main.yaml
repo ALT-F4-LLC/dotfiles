@@ -1,5 +1,7 @@
 ---
 - name: Install
   ansible.builtin.package:
-    name: zsh
-    state: present
+    name:
+      - zsh
+    state: latest
+  become: yes

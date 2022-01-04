@@ -1,12 +1,19 @@
 ---
 - hosts: localhost
   roles:
+    - yay
     - i3
+    - feh
+    - docker
     - zsh
     - oh-my-zsh
     - tmux
     - oh-my-tmux
+    - ripgrep
+    - nnn
     - git
+    - bottom
     - k9s
-    - { role: neovim, version: "2f31e7b88b1147fa5f48b1ab1d140cb8ccc1e801" }
-    - { role: feh, file: "rockets.webp" }
+    - lazydocker
+    - lazygit
+    - neovim

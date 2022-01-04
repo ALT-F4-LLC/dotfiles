@@ -4,6 +4,7 @@
     name:
       - k9s
     state: latest
+  become: yes
 
 - name: skin.yml
   ansible.builtin.copy:

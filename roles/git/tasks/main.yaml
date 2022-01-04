@@ -4,6 +4,7 @@
     name:
       - git
     state: latest
+  become: yes
 
 - name: Set diff.colorMoved
   community.general.git_config:
