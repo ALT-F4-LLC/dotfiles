@@ -3,6 +3,8 @@
   roles:
     - system
     - open-vm-tools
+    - firefox
+    - mimeapps
     - nitrogen
     - i3
     - docker
