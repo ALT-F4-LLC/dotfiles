@@ -5,7 +5,7 @@
 export CARGO_PATH="$HOME/.cargo/bin"
 
 # DOTFILES
-export DOTFILES_PATH="$HOME/Development/repository/github.com/ALT-F4-LLC/dotfiles"
+export DOTFILES_PATH="$HOME/.dotfiles/bin"
 
 # FUSION, HA!
 export FUSION_PATH="/Library/Application Support/VMware Fusion"
@@ -22,7 +22,7 @@ export PYENV_PATH="$PYENV_ROOT/bin"
 export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # PATH
-export PATH="$DOTFILES_PATH/bin:$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
+export PATH="$DOTFILES_PATH:$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
 
 # HELM
 export HELM_EXPERIMENTAL_OCI=1
