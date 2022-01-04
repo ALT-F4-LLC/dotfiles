@@ -1,11 +1,14 @@
 ---
 - hosts: localhost
   roles:
+    - system
+    - open-vm-tools
     - nitrogen
     - i3
     - docker
     - pyenv
     - kitty
+    - bat
     - zsh
     - oh-my-zsh
     - tmux
