@@ -2,6 +2,13 @@
 - name: Install
   ansible.builtin.package:
     name:
+      - bat
       - zsh
     state: latest
+  become: yes
+
+- name: Set default
+  user:
+    name: "{{ ansible_env['USER'] }}"
+    shell: /usr/bin/zsh
   become: yes

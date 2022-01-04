@@ -6,3 +6,17 @@
       - docker-compose
     state: latest
   become: yes
+
+- name: Enable service
+  ansible.builtin.systemd:
+    enabled: yes
+    name: docker
+    state: started
+  become: yes
+
+- name: Add to group
+  ansible.builtin.user:
+    append: yes
+    groups: docker
+    name: "{{ ansible_env['USER'] }}"
+  become: yes

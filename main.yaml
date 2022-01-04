@@ -1,10 +1,11 @@
 ---
 - hosts: localhost
   roles:
-    - yay
+    - nitrogen
     - i3
-    - feh
     - docker
+    - pyenv
+    - kitty
     - zsh
     - oh-my-zsh
     - tmux

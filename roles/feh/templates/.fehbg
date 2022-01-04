@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-
-feh --no-fehbg --bg-scale "{{ role_path }}/files/{{ feh_file }}"

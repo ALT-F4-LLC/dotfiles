@@ -1,0 +1,15 @@
+---
+- name: nitrogen.cfg
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.config/nitrogen/nitrogen.cfg"
+    src: "nitrogen.cfg" 
+
+- name: bg-saved.cfg
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.config/nitrogen/bg-saved.cfg"
+    src: "bg-saved.cfg" 
+  register: background
+
+- name: Restore
+  command: nitrogen --restore
+  when: background.changed
