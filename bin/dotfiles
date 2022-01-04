@@ -2,9 +2,9 @@
 set -e
 
 # Paths
-DEVELOPMENT_DIR="$HOME/Development"
-REPOSITORY_DIR="$DEVELOPMENT_DIR/repository"
-ALTF4LLC_DIR="$REPOSITORY_DIR/github.com/ALT-F4-LLC"
+CONFIG_DIR="$HOME/.config/dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"
+SSH_DIR="$HOME/.ssh"
 
 # Install Ansible
 if ! [ -x "$(command -v ansible)" ]; then
@@ -12,30 +12,28 @@ if ! [ -x "$(command -v ansible)" ]; then
 fi
 
 # Generate SSH keys
-if ! [[ -f "$HOME/.ssh/authorized_keys" ]]; then
-  mkdir -p "$HOME/.ssh"
+if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+  mkdir -p "$SSH_DIR"
 
-  chmod 700 "$HOME/.ssh"
+  chmod 700 "$SSH_DIR"
 
-  ssh-keygen -b 4096 -t rsa -f "$HOME/.ssh/id_rsa" -N "" -C "$USER@$HOSTNAME"
+  ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
 
-  cat "$HOME/.ssh/id_rsa.pub" >> $HOME/.ssh/authorized_keys
+  cat "$SSH_DIR/id_rsa.pub" >> "$SSH_DIR/authorized_keys"
 fi
 
 # Clone repository
-mkdir -p $ALTF4LLC_DIR
-
-if ! [[ -d "$ALTF4LLC_DIR/dotfiles" ]]; then
-  git clone "https://github.com/ALT-F4-LLC/dotfiles.git" "$ALTF4LLC_DIR/dotfiles"
+if ! [[ -d "$DOTFILES_DIR" ]]; then
+  git clone "https://github.com/ALT-F4-LLC/dotfiles.git" "$DOTFILES_DIR"
 else
-  git -C "$ALTF4LLC_DIR/dotfiles" pull
+  git -C "$DOTFILES_DIR" pull
 fi
 
 # Create path
-cd "$ALTF4LLC_DIR/dotfiles"
+cd "$DOTFILES_DIR"
 
 # Update Galaxy
 ansible-galaxy install -r requirements.yml
 
 # Run playbook
-ansible-playbook --extra-vars "@$HOME/.config/dotfiles/values.yaml" "$ALTF4LLC_DIR/dotfiles/main.yaml" -D
+ansible-playbook --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" -D
