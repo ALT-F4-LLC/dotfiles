@@ -38,6 +38,9 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+# launch vmware-user
+exec --no-startup-id vmware-user
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
