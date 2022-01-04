@@ -15,7 +15,7 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 2. Current user SSH public key must be added to `authorized_keys`.
 3. SSH service must be started and listening on port `22` (inventory.yaml for more).
 
-## Configuration
+## Extra Vars
 
 This playbook requires an external `values.yaml` file to be included as a runtime argument. An example runtime command is included below in the usage section.
 
@@ -26,13 +26,25 @@ This playbook requires an external `values.yaml` file to be included as a runtim
 | git_user_name  | required                                 |
 | neovim_version | optional                                 |
 
+### Example
 
-## Useage
+Below is an example `values.yaml` file:
+
+```yaml
+---
+feh_file: cats.webp
+git_user_email: foo@bar.com
+git_user_name: Foo Bar
+neovim_version: master
+```
+
+
+## Usage
 
 Run this repository as an Ansible playbook to setup/update the environment:
 
-```
-ansible-playbook -i ./inventory.yaml -e @values.yaml main.yaml
+```bash
+ansible-playbook --inventory ./inventory.yaml --extra-vars @values.yaml main.yaml
 ```
 
 [preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
