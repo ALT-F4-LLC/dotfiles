@@ -9,23 +9,22 @@ Neovim configuration for `blackglasses` at [The Alt-F4 Stream](https://www.twitc
 
 1. Dependencies must be installed before setup.
 
-- [Arch Linux](https://archlabslinux.com/)
-- [i3-gaps](https://github.com/Airblader/i3/wiki/installation)
+- [ArchLabs Linux with i3-gaps](https://archlabslinux.com/) (OS install)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
-2. SSH public key must be added to `authorized_keys`.
-3. SSH service must be started and listening on port `22` (invetory.yaml for more).
+2. Current user SSH public key must be added to `authorized_keys`.
+3. SSH service must be started and listening on port `22` (inventory.yaml for more).
 
 ## Configuration
 
 This playbook requires an external `values.yaml` file to be included as a runtime argument. An example runtime command is included below in the usage section.
 
-| Name           | Value                                      |
-| -------------- | ------------------------------------------ |
-| feh_file       | <required> (filename from roles/feh/files) |
-| git_user_email | <required>                                 |
-| git_user_name  | <required>                                 |
-| neovim_version | <optional>                                 |
+| Name           | Value                                    |
+| -------------- | ---------------------------------------- |
+| feh_file       | required (filename from roles/feh/files) |
+| git_user_email | required                                 |
+| git_user_name  | required                                 |
+| neovim_version | optional                                 |
 
 
 ## Useage
