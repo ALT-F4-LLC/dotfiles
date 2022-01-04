@@ -32,9 +32,9 @@ Below is an example `values.yaml` file:
 
 ```yaml
 ---
-feh_file: cats.webp
 git_user_email: foo@bar.com
 git_user_name: Foo Bar
+nitrogen_background: cats.png
 neovim_version: master
 ```
 
