@@ -9,6 +9,7 @@
       - tree-sitter
       - unzip
     state: latest
+  become: yes
 
 - name: Clone
   ansible.builtin.git:
@@ -18,7 +19,7 @@
     repo: https://github.com/neovim/neovim.git
     single_branch: yes
     update: yes
-    version: "{{ version }}"
+    version: "{{ neovim_version }}"
   register: clone
 
 - name: Build
