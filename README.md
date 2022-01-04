@@ -44,6 +44,7 @@ neovim_version: master
 Run this repository as an Ansible playbook to setup/update the environment:
 
 ```shell
+ansible-galaxy install -r requirements.yml
 ansible-playbook --extra-vars @values.yaml main.yaml
 ```
 
