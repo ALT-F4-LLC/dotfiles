@@ -11,3 +11,8 @@
     name: "{{ ansible_env['USER'] }}"
     shell: /usr/bin/zsh
   become: yes
+
+- name: Set private
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.zsh_private"
+    src: ".zsh_private"
