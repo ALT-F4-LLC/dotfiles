@@ -1,0 +1,25 @@
+default_roles:
+  - system
+  - open-vm-tools
+  - firefox
+  - mimeapps
+  - nitrogen
+  - i3
+  - docker
+  - pyenv
+  - kitty
+  - bat
+  - zsh
+  - oh-my-zsh
+  - tmux
+  - oh-my-tmux
+  - ripgrep
+  - nnn
+  - git
+  - bottom
+  - k9s
+  - lazydocker
+  - lazygit
+  - neovim
+  - slack
+  - twingate
