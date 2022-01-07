@@ -109,8 +109,6 @@ This shell script is also used to initialize your environment after installing `
 $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ALT-F4-LLC/dotfiles/main/bin/dotfiles)"
 ```
 
-> NOTE: This will add the `dotfiles` shell script as a command in your `$PATH`.
-
 ### Update
 
 This repository is continuously updated with new features and settings which become available to you when updating.
