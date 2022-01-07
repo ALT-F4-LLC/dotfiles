@@ -57,6 +57,8 @@ cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
 
 #### Available Values
 
+Below is a list of all available values. Not are all required but required values will break the playbook if not properly set.
+
 | Name                | Type                                | Required |
 | ------------------- | ----------------------------------- | -------- |
 | git_user_email      | string                              | yes      |
