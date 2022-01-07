@@ -4,12 +4,6 @@
     dest: /tmp/twingate.pkg.tar.zst
     url: https://binaries.twingate.com/client/linux/ARCH/latest/twingate-amd64.pkg.tar.zst
 
-- name: Update pacman
-  community.general.pacman:
-    force: yes
-    update_cache: yes
-  become: yes
-
 - name: Install
   community.general.pacman:
     name: /tmp/twingate.pkg.tar.zst
