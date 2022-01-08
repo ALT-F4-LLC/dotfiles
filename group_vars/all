@@ -24,3 +24,4 @@ default_roles:
   - slack
   - twingate
   - pulumi
+  - kubectl
