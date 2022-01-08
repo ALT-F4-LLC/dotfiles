@@ -55,10 +55,16 @@ cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
 
 #### vault-password.txt
 
-The `vault-password.txt` file allows you to encrypt values with `Ansible vault` and store them securely in source control. Create a file located at `~/.config/dotfiles/vault-password.txt`.
+The `vault-password.txt` file allows you to encrypt values with `Ansible vault` and store them securely in source control. Create a file located at `~/.config/dotfiles/vault-password.txt` with a secure password in it.
 
 ```bash
 vim .config/dotfiles/vault-password.yaml
+```
+
+To then encrypt values with your vault password use the following:
+
+```bash
+ansible-vault encrypt_string --vault-password-file $HOME/.config/dotfiles/vault-password.txt "mynewsecret" --name "MY_SECRET_VAR"
 ```
 
 > NOTE: This file will automatically be detected by the playbook when running `dotfiles` command to decrypt values.
