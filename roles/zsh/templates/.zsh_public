@@ -1,0 +1,5 @@
+{% if zsh_public is defined %}
+{% for key, value in zsh_public.items() %}
+export {{ key }}='{{ value }}'
+{% endfor %}
+{% endif %}
