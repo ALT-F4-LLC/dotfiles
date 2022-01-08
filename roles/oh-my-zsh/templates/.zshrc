@@ -1,40 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# CARGO
-export CARGO_PATH="$HOME/.cargo/bin"
-
 # DOTFILES
 export DOTFILES_PATH="$HOME/.dotfiles/bin"
-
-# FUSION, HA!
-export FUSION_PATH="/Library/Application Support/VMware Fusion"
-
-# GO
-export GOPATH="$HOME/Development/languages/go"
-export GO111MODULE="on"
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PYENV_PATH="$PYENV_ROOT/bin"
 
-# VSCODE
-export VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
 # PATH
-export PATH="$DOTFILES_PATH:$CARGO_PATH:$FUSION_PATH:$GOPATH/bin:$PYENV_PATH:$VSCODE_PATH:/usr/local/sbin:$PATH"
-
-# HELM
-export HELM_EXPERIMENTAL_OCI=1
+export PATH="$DOTFILES_PATH:$PYENV_PATH:/usr/local/sbin:$PATH"
 
 # PIP
 export PIP_REQUIRE_VIRTUALENV=true
-
-# PULUMI
-export PULUMI_K8S_SUPPRESS_HELM_HOOK_WARNINGS="true"
-
-# VAGRANT
-export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -165,6 +143,19 @@ alias cat='bat --paging=never --theme="base16"'
 alias ll='n -Hde'
 alias ssh='TERM="xterm-256color" ssh'
 
+# The next line sources a private environment file if it exists
+if [ -f "$HOME/.zsh_public" ]; then . "$HOME/.zsh_public"; fi
+if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
+
+# Pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PYENV_SHIMS=$(pyenv root)/shims
+export PATH=$PYENV_SHIMS:$HOME/.pulumi/bin:$PATH
+
+# TODO : cleanup scripting below
+
 # ITERM (MACOS ONLY)
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e /usr/share/nvm/init-nvm.sh && source /usr/share/nvm/init-nvm.sh
@@ -176,14 +167,3 @@ if [ -f "$HOME/Development/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Devel
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/Development/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Development/google-cloud-sdk/completion.zsh.inc"; fi
-
-# The next line sources a private environment file if it exists
-if [ -f "$HOME/.zsh_local" ]; then . "$HOME/.zsh_local"; fi
-if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
-
-# Pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export PYENV_SHIMS=$(pyenv root)/shims
-export PATH=$PYENV_SHIMS:$HOME/.pulumi/bin:$PATH

@@ -12,6 +12,11 @@
     shell: /usr/bin/zsh
   become: yes
 
+- name: Set public
+  ansible.builtin.template:
+    dest: "{{ ansible_user_dir }}/.zsh_public"
+    src: ".zsh_public"
+
 - name: Set private
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.zsh_private"
