@@ -6,6 +6,33 @@ Fully automated development environment for `blackglasses` at [The Alt-F4 Stream
 ![The Alt-F4 Stream][preview]
 
 
+# Table of Contents
+
+- [Goals](#goals)
+  - [Why Manjaro with i3?](#)
+  - [Why Ansible?](#)
+- [Requirements](#)
+  - [Operating System](#)
+  - [System Upgrade](#)
+- [Setup](#)
+  - [values.yaml](#)
+    - [Environment](#)
+      - [zsh_public](#)
+      - [zsh_private](#)
+    - [Kubernetes](#)
+      - [kubectl_config](#)
+      - [kubectl_config_active](#)
+    - [SSH Keys](#)
+    - [System Hosts](#)
+    - [Examples](#)
+      - [Minimal](#)
+      - [Advanced](#)
+  - [vault-password.txt](#)
+- [Usage](#)
+  - [Install](#)
+  - [Update](#)
+
+
 ## Goals
 
 Provide fully automated `Manjaro with i3` development environment that is easy to setup and maintain.
@@ -43,9 +70,9 @@ sudo pacman -Syu
 > NOTE: This will take some time.
 
 
-### Setup
+## Setup
 
-#### values.yaml
+### values.yaml
 
 The `values.yaml` file allows you to personalize your setup to your needs. Create a file located at `~/.config/dotfiles/values.yaml` and include your desired settings.
 
@@ -53,43 +80,28 @@ The `values.yaml` file allows you to personalize your setup to your needs. Creat
 cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
 ```
 
-#### vault-password.txt
-
-The `vault-password.txt` file allows you to encrypt values with `Ansible vault` and store them securely in source control. Create a file located at `~/.config/dotfiles/vault-password.txt` with a secure password in it.
-
-```bash
-vim .config/dotfiles/vault-password.yaml
-```
-
-To then encrypt values with your vault password use the following:
-
-```bash
-ansible-vault encrypt_string --vault-password-file $HOME/.config/dotfiles/vault-password.txt "mynewsecret" --name "MY_SECRET_VAR"
-```
-
-> NOTE: This file will automatically be detected by the playbook when running `dotfiles` command to decrypt values.
-
-
-#### Available Values
-
 Below is a list of all available values. Not all are required but incorrect values will break the playbook if not properly set.
 
-| Name                | Type                                | Required |
-| ------------------- | ----------------------------------- | -------- |
-| git_user_email      | string                              | yes      |
-| git_user_name       | string                              | yes      |
-| exclude_roles       | array `(see group_vars/all)`        | no       |
-| neovim_version      | string `(branch, tag or SHA)`       | no       |
-| nitrogen_background | string `(see roles/nitrogen/files)` | no       |
-| zsh_public          | dict `(see Environment below)`      | no       |
-| zsh_private         | dict `(see Environment below)`      | no       |
+| Name                  | Type                                | Required |
+| -------------------   | ----------------------------------- | -------- |
+| git_user_email        | string                              | yes      |
+| git_user_name         | string                              | yes      |
+| exclude_roles         | array `(see group_vars/all)`        | no       |
+| kubectl_config        | dict `(see Kubernetes below)`       | no       |
+| kubectl_config_active | string `(see Kubernetes below)`     | no       |
+| neovim_version        | string `(branch, tag or SHA)`       | no       |
+| nitrogen_background   | string `(see roles/nitrogen/files)` | no       |
+| ssh_key               | dict `(see SSH Keys below)`         | no       |
+| system_host           | dict `(see System Hosts below)`     | no       |
+| zsh_public            | dict `(see Environment below)`      | no       |
+| zsh_private           | dict `(see Environment below)`      | no       |
 
 
-### Environment
+#### Environment
 
 Manage environment variables by configuring the `zsh_public` and `zsh_private` values in `values.yaml`. See both values usecase below.
 
-#### zsh_public
+##### zsh_public
 
 The `zsh_public` value allows you to include a dictionary of generic and unsecure key-value pairs that will be stored in a `~/.zsh_public`.
 
@@ -150,6 +162,24 @@ kubectl_config_active: myconfig
 ```
 
 
+### SSH Keys
+
+Manage SSH keys by setting the `ssh_key` value in `values.yaml` shown as example below:
+
+```yaml
+...
+ssh_key:
+  <filename>: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+      62333533626436313366316235626561626635396233303730343332666466393561346462303163
+      3666636638613437353663356563656537323136646137630a336332303030323031376164316562
+      65333963633339323762663865363766303966643035303234376163616239663539366564396166
+      3830376265316231630a623834333061393138306331653164626437623337366165636163306237
+      3437
+...
+```
+
+
 ### System Hosts
 
 Manage `/etc/hosts` by setting the `system_host` value in `values.yaml`.
@@ -195,6 +225,13 @@ kubectl_config:
 kubectl_config_active: myconfig
 neovim_version: master
 nitrogen_background: cats.png
+ssh_key: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+    62333533626436313366316235626561626635396233303730343332666466393561346462303163
+    3666636638613437353663356563656537323136646137630a336332303030323031376164316562
+    65333963633339323762663865363766303966643035303234376163616239663539366564396166
+    3830376265316231630a623834333061393138306331653164626437623337366165636163306237
+    3437
 system_host:
   127.0.0.1: foobar.localhost
 zsh_public:
@@ -208,6 +245,24 @@ zsh_private:
     3830376265316231630a623834333061393138306331653164626437623337366165636163306237
     3437
 ```
+
+
+### vault-password.txt
+
+The `vault-password.txt` file allows you to encrypt values with `Ansible vault` and store them securely in source control. Create a file located at `~/.config/dotfiles/vault-password.txt` with a secure password in it.
+
+```bash
+vim .config/dotfiles/vault-password.yaml
+```
+
+To then encrypt values with your vault password use the following:
+
+```bash
+$ ansible-vault encrypt_string --vault-password-file $HOME/.config/dotfiles/vault-password.txt "mynewsecret" --name "MY_SECRET_VAR"
+$ cat myfile.conf | ansible-vault encrypt_string --vault-password-file $HOME/.config/dotfiles/vault-password.txt --stdin-name "myfile"
+```
+
+> NOTE: This file will automatically be detected by the playbook when running `dotfiles` command to decrypt values. Read more on Ansible Vault [here](https://docs.ansible.com/ansible/latest/user_guide/vault.html).
 
 
 ## Usage
