@@ -20,6 +20,7 @@
   no_log: true
   loop_control:
     loop_var: kubectl_config_item
+  register: configs
   with_items: "{{ kubectl_config | default({}) | dict2items }}"
 
 - name: Set active
@@ -27,3 +28,4 @@
     dest: "{{ ansible_user_dir }}/.kube/config"
     src: "{{ ansible_user_dir }}/.kube/conf.d/{{ kubectl_config_active }}.conf"
     state: link
+  when: kubectl_config[kubectl_config_active] is defined
