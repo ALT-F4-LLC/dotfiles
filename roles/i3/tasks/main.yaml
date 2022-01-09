@@ -2,4 +2,4 @@
 - name: Configuration
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.i3/config"
-    src: "config"
+    src: "config.j2"

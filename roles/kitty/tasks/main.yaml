@@ -15,11 +15,13 @@
 - name: Configuration
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
-    src: "kitty.conf" 
+    src: "kitty.conf.j2"
 
 - name: Themes 
   copy:
     dest: "{{ ansible_user_dir }}/.config/kitty"
-    src: "{{ item }}"
+    src: "{{ kitty_config_item }}"
+  loop_control:
+    loop_var: kitty_config_item
   with_fileglob:
     - "kitty_*"

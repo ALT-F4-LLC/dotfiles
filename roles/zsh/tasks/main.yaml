@@ -15,9 +15,9 @@
 - name: Set public
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.zsh_public"
-    src: ".zsh_public"
+    src: ".zsh_public.j2"
 
 - name: Set private
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.zsh_private"
-    src: ".zsh_private"
+    src: ".zsh_private.j2"

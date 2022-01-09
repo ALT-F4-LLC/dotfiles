@@ -23,7 +23,7 @@
 - name: Copy .zshrc
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.zshrc"
-    src: ".zshrc"
+    src: .zshrc.j2
 
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
