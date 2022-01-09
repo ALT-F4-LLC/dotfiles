@@ -179,6 +179,8 @@ ssh_key:
 ...
 ```
 
+> NOTE: All ssh keys will be stored at `$HOME/.ssh/<filename>`.
+
 
 ### System Hosts
 
