@@ -170,6 +170,17 @@ local function packer_startup()
       require'TheAltF4Stream.plugins.zettel'.init()
     end
   }
+
+  use {
+    'weilbith/nvim-code-action-menu',
+    requires = {
+      'kosayoda/nvim-lightbulb'
+    },
+    cmd = 'CodeActionMenu',
+    config = function ()
+      require'TheAltF4Stream.plugins.code_action_menu'.init()
+    end
+  }
 end
 
 local function init()
