@@ -19,4 +19,4 @@
 - name: Copy .tmux.conf.local
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.tmux.conf.local"
-    src: ".tmux.conf.local"
+    src: ".tmux.conf.local.j2"

@@ -5,3 +5,24 @@
       - kubectl
     state: latest
   become: yes
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.kube/conf.d"
+    state: directory
+
+- name: Copy configs
+  copy:
+    dest: "{{ ansible_user_dir }}/.kube/conf.d/{{ kubectl_config_item.key }}.conf"
+    content: "{{ kubectl_config_item.value }}"
+    mode: 0400
+  loop_control:
+    loop_var: kubectl_config_item
+  with_items: "{{ kubectl_config | default({}) | dict2items }}"
+
+- name: Set active
+  ansible.builtin.file:
+    dest: "{{ ansible_user_dir }}/.kube/config"
+    src: "{{ ansible_user_dir }}/.kube/conf.d/{{ kubectl_config_active }}.conf"
+    state: link
