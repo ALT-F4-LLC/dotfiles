@@ -27,3 +27,4 @@ default_roles:
   - pulumi
   - kubectl
   - nvm
+  - postman

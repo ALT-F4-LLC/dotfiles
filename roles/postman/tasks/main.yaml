@@ -1,0 +1,6 @@
+---
+- name: Install
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - postman-bin
