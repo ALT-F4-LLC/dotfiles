@@ -196,6 +196,8 @@ system_host:
 
 ### Examples
 
+Below includes minimal and advanced configuration examples. If you would like to see a more real world example take a look at [blackglasses public configuration](https://github.com/ALT-F4-LLC/dotfiles-erikreinert) repository.
+
 #### Minimal
 
 Below is a minimal example of `values.yaml` file:
