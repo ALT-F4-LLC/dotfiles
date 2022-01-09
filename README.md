@@ -93,9 +93,73 @@ Manage environment variables by configuring the `zsh_public` and `zsh_private` v
 
 The `zsh_public` value allows you to include a dictionary of generic and unsecure key-value pairs that will be stored in a `~/.zsh_public`.
 
+```yaml
+...
+zsh_public:
+  MY_ENV_VAR: something
+...
+```
+
 #### zsh_private
 
 The `zsh_private` value allows you to include a dictionary of secure key-value pairs that will be stored in a `~/.zsh_private`.
+
+```yaml
+...
+zsh_private:
+  MY_ENV_VAR_SECRET: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    62333533626436313366316235626561626635396233303730343332666466393561346462303163
+    3666636638613437353663356563656537323136646137630a336332303030323031376164316562
+    65333963633339323762663865363766303966643035303234376163616239663539366564396166
+    3830376265316231630a623834333061393138306331653164626437623337366165636163306237
+    3437
+...
+```
+
+### Kubernetes
+
+Manage `kubectl` configurations by setting the `kubectl_config` and `kubectl_config_active` values in `values.yaml`. See both values usecase below.
+
+
+#### kubectl_config
+
+You can store `kubectl` configuration files as Ansible vault secrets and then store them in your `values.yaml` as shown below:
+
+```yaml
+...
+kubectl_config:
+  myconfig: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+      62333533626436313366316235626561626635396233303730343332666466393561346462303163
+      3666636638613437353663356563656537323136646137630a336332303030323031376164316562
+      65333963633339323762663865363766303966643035303234376163616239663539366564396166
+      3830376265316231630a623834333061393138306331653164626437623337366165636163306237
+      3437
+...
+```
+
+#### kubectl_config_active
+
+You can set one of your `kubectl_config` values as the active `kubectl` configuration in your `values.yaml` as shown below:
+
+```yaml
+...
+kubectl_config_active: myconfig
+...
+```
+
+
+### System Hosts
+
+Manage `/etc/hosts` by setting the `system_host` value in `values.yaml`.
+
+```yaml
+...
+system_host:
+  127.0.0.1: foobar.localhost
+...
+```
 
 
 ### Examples
@@ -120,8 +184,19 @@ git_user_email: foo@bar.com
 git_user_name: Foo Bar
 exclude_roles:
   - slack
+kubectl_config:
+  myconfig: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+      62333533626436313366316235626561626635396233303730343332666466393561346462303163
+      3666636638613437353663356563656537323136646137630a336332303030323031376164316562
+      65333963633339323762663865363766303966643035303234376163616239663539366564396166
+      3830376265316231630a623834333061393138306331653164626437623337366165636163306237
+      3437
+kubectl_config_active: myconfig
 neovim_version: master
 nitrogen_background: cats.png
+system_host:
+  127.0.0.1: foobar.localhost
 zsh_public:
   MY_PUBLIC_VAR: foobar
 zsh_private:
