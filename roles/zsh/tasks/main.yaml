@@ -21,3 +21,4 @@
   ansible.builtin.template:
     dest: "{{ ansible_user_dir }}/.zsh_private"
     src: ".zsh_private.j2"
+  no_log: true
