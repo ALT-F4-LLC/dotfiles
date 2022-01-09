@@ -17,6 +17,7 @@
     dest: "{{ ansible_user_dir }}/.kube/conf.d/{{ kubectl_config_item.key }}.conf"
     content: "{{ kubectl_config_item.value }}"
     mode: 0400
+  no_log: true
   loop_control:
     loop_var: kubectl_config_item
   with_items: "{{ kubectl_config | default({}) | dict2items }}"
