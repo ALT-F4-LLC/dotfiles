@@ -30,3 +30,4 @@ default_roles:
   - postman
   - visual-studio-code
   - smbclient
+  - discord
