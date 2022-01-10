@@ -31,3 +31,4 @@ default_roles:
   - visual-studio-code
   - smbclient
   - discord
+  - aws-cli
