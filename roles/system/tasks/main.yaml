@@ -1,4 +1,11 @@
 ---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - dog
+    state: latest
+  become: yes
+
 - name: Set sudo
   ansible.builtin.replace:
     path: "/etc/sudoers.d/10-installer"
