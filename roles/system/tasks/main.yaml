@@ -1,10 +1,4 @@
 ---
-- name: Upgrade
-  community.general.pacman:
-    update_cache: yes
-    upgrade: yes
-  become: yes
-
 - name: Set sudo
   ansible.builtin.replace:
     path: "/etc/sudoers.d/10-installer"
