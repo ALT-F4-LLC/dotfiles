@@ -32,3 +32,4 @@ default_roles:
   - smbclient
   - discord
   - aws-cli
+  - spotify
