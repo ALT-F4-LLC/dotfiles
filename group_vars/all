@@ -33,3 +33,4 @@ default_roles:
   - discord
   - aws-cli
   - spotify
+  - httpie

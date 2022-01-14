@@ -1,0 +1,7 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - httpie
+    state: latest
+  become: yes
