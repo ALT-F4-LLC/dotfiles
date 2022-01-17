@@ -1,0 +1,8 @@
+---
+- name: Copy .npmrc
+  copy:
+    dest: "{{ ansible_user_dir }}/.npmrc"
+    content: "{{ nodejs_npmrc_config }}"
+    mode: 0400
+  no_log: true
+  when: nodejs_npmrc_config is defined

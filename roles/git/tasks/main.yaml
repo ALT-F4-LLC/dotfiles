@@ -18,6 +18,12 @@
     scope: global
     value: true
 
+- name: Set init.defaultBranch
+  community.general.git_config:
+    name: init.defaultBranch
+    scope: global
+    value: main
+
 - name: Set pull.rebase
   community.general.git_config:
     name: pull.rebase
