@@ -34,3 +34,4 @@ default_roles:
   - aws-cli
   - spotify
   - httpie
+  - nodejs
