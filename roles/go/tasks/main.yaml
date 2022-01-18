@@ -1,0 +1,13 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name:
+      - go
+    state: latest
+  become: yes
+
+- name: Config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/Development/language/go"
+    state: directory

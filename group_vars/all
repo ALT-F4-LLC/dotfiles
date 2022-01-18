@@ -35,3 +35,4 @@ default_roles:
   - spotify
   - httpie
   - nodejs
+  - go
