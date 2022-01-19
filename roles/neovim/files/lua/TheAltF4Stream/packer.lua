@@ -31,6 +31,21 @@ local function packer_startup()
       'nvim-lua/lsp_extensions.nvim',
     },
     config = function ()
+      require'lspcontainers'.setup({
+        ensure_installed = {
+          "bashls",
+          "dockerls",
+          "gopls",
+          "html",
+          "pylsp",
+          "rust_analyzer",
+          "sumneko_lua",
+          "terraformls",
+          "tsserver",
+          "yamlls"
+        }
+      })
+
       require'TheAltF4Stream.plugins.lspconfig'.init()
     end
   }
