@@ -32,6 +32,8 @@ Fully automated development environment for `blackglasses` at [The Alt-F4 Stream
 - [Usage](#usage)
   - [Install](#install)
   - [Update](#update)
+- [Known Issues](#known-issues)
+  - [Neovim Updates]($neovim-updates)
 
 
 ## Goals
@@ -318,5 +320,12 @@ This will handle the following tasks:
 - Clone this repository locally to `~/.dotfiles`
 - Verify any `ansible-galaxy` plugins are updated
 - Run this playbook with the values in `~/.config/dotfiles/values.yaml`
+
+
+## Known Issues
+
+### Neovim Updates
+
+Sometimes the cloning task in `neovim` role fails due to conflicts with the repository history. The easiest solution is to delete the repository at `~/Development/repository/github.com/neovim/neovim` and let the playbook clone it again.
 
 [preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
