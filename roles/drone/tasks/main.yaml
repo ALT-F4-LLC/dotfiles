@@ -1,0 +1,7 @@
+---
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - drone-cli
+    state: latest
+  become: yes

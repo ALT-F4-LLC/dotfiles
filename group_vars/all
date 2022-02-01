@@ -36,3 +36,6 @@ default_roles:
   - httpie
   - nodejs
   - go
+  - datagrip
+  - drone
+  - jsonnet
