@@ -39,3 +39,4 @@ default_roles:
   - datagrip
   - drone
   - jsonnet
+  - notion-app
