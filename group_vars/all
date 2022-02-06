@@ -40,3 +40,5 @@ default_roles:
   - drone
   - jsonnet
   - notion-app
+  - terraform
+  - azure-cli
