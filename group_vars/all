@@ -42,3 +42,4 @@ default_roles:
   - notion-app
   - terraform
   - azure-cli
+  - kind

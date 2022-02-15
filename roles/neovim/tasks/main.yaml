@@ -16,6 +16,7 @@
     clone: yes
     depth: 1
     dest: "{{ ansible_user_dir }}/Development/repository/github.com/neovim/neovim"
+    force: yes
     repo: https://github.com/neovim/neovim.git
     single_branch: yes
     update: yes

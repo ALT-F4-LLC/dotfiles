@@ -20,3 +20,10 @@
     groups: docker
     name: "{{ ansible_env['USER'] }}"
   become: yes
+
+- name: Copy daemon.json
+  ansible.builtin.template:
+    dest: "/etc/docker/daemon.json"
+    src: "daemon.json"
+  become: yes
+  notify: restart_docker

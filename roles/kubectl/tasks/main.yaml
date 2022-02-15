@@ -16,7 +16,7 @@
   copy:
     dest: "{{ ansible_user_dir }}/.kube/conf.d/{{ kubectl_config_item.key }}.conf"
     content: "{{ kubectl_config_item.value }}"
-    mode: 0400
+    mode: 0600
   no_log: true
   loop_control:
     loop_var: kubectl_config_item
