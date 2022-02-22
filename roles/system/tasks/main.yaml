@@ -2,6 +2,7 @@
 - name: Install
   ansible.builtin.package:
     name:
+      - jq
       - dog
       - open-iscsi
     state: latest
