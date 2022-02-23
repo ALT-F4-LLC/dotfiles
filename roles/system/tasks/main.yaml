@@ -5,6 +5,7 @@
       - jq
       - dog
       - open-iscsi
+      - nfs-utils
     state: latest
   become: yes
 

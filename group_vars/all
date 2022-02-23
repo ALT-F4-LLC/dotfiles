@@ -37,9 +37,10 @@ default_roles:
   - nodejs
   - go
   - datagrip
-  - drone
+  - drone-cli
   - jsonnet
   - notion-app
   - terraform
   - azure-cli
   - kind
+  - circleci-cli
