@@ -21,3 +21,10 @@
     dest: "/etc/hosts"
     src: hosts.j2
   become: yes
+
+- name: Set snap classic
+  ansible.builtin.file:
+    dest: "/snap"
+    src: "/var/lib/snapd/snap"
+    state: link
+  become: yes

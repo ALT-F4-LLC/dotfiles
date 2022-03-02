@@ -1,6 +1,6 @@
 ---
 - name: Install
-  kewlfft.aur.aur:
-    use: yay
-    name:
-      - datagrip-jre
+  community.general.snap:
+    name: datagrip
+    classic: yes
+  become: yes
