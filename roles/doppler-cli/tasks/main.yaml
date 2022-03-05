@@ -1,0 +1,10 @@
+---
+- name: Download installer
+  get_url:
+    dest: /tmp/install-doppler.sh
+    mode: 0755
+    url: https://cli.doppler.com/install.sh
+
+- name: Execute installer
+  shell: /tmp/install-doppler.sh
+  become: yes

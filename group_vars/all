@@ -44,3 +44,4 @@ default_roles:
   - azure-cli
   - kind
   - circleci-cli
+  - doppler-cli

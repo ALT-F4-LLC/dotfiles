@@ -2,6 +2,7 @@
 - name: Install
   ansible.builtin.package:
     name:
+      - git-filter-repo
       - jq
       - dog
       - open-iscsi
