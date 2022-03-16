@@ -45,3 +45,5 @@ default_roles:
   - kind
   - circleci-cli
   - doppler-cli
+  - lens
+  - helm
