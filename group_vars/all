@@ -47,3 +47,4 @@ default_roles:
   - doppler-cli
   - lens
   - helm
+  - certbot
