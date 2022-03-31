@@ -48,3 +48,4 @@ default_roles:
   - lens
   - helm
   - certbot
+  - github-cli
