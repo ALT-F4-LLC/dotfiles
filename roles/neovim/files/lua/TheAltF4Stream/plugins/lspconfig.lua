@@ -64,7 +64,6 @@ local function init()
   local lspconfig_servers = {
     "cssls",
     "elixirls",
-    "graphql",
     "jsonls",
     'jsonnet_ls',
     "sqlls",
@@ -73,6 +72,7 @@ local function init()
   local lspcontainer_servers = {
     "bashls",
     "dockerls",
+    "graphql",
     "gopls",
     "html",
     "pylsp",

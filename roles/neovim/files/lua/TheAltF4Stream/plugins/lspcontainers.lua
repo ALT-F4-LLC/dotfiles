@@ -46,6 +46,10 @@ local function setup(config, server)
     config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
   end
 
+  if server == "graphql" then
+    config.cmd = lspcontainers.command(server)
+  end
+
   if server == "gopls" then
     config.cmd = lspcontainers.command(server)
   end
