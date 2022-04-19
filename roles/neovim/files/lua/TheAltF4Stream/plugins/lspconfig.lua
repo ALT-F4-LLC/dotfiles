@@ -64,7 +64,6 @@ local function init()
   local lspconfig_servers = {
     "cssls",
     "elixirls",
-    "jsonls",
     'jsonnet_ls',
     "sqlls",
   }
@@ -75,6 +74,7 @@ local function init()
     "graphql",
     "gopls",
     "html",
+    "jsonls",
     "pylsp",
     "rust_analyzer",
     "sumneko_lua",

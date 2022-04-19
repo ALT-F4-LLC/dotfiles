@@ -58,6 +58,15 @@ local function setup(config, server)
     config.cmd = lspcontainers.command(server)
   end
 
+  if server == "jsonls" then
+    config.before_init = function(params)
+      params.processId = vim.NIL
+    end
+
+    config.cmd = lspcontainers.command(server)
+    config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
+  end
+
   if server == "pylsp" then
     config.cmd = lspcontainers.command(server)
   end
