@@ -23,6 +23,7 @@ local function init()
           fallback()
         end
       end, { "i", "s" }),
+      ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     sources = {
       { name = 'cmp_tabnine' },
