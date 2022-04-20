@@ -11,5 +11,8 @@
 
     - name: Run roles
       include_role:
+        apply:
+          tags:
+            - "{{ item }}"
         name: "{{ item }}"
       with_items: "{{ roles }}"
