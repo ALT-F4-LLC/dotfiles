@@ -1,0 +1,19 @@
+---
+- name: Download
+  unarchive:
+    dest: /tmp
+    remote_src: yes
+    src: https://github.com/twitchdev/twitch-cli/releases/download/v1.1.6/twitch-cli_1.1.6_Linux_x86_64.tar.gz
+
+- name: Install
+  copy:
+    dest: /usr/local/bin/twitch
+    remote_src: true
+    src: /tmp/twitch-cli_1.1.6_Linux_x86_64/twitch
+  become: yes
+
+- name: Set permissions
+  file:
+    path: /usr/local/bin/twitch
+    mode: '0755'
+  become: yes

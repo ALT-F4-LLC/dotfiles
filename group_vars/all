@@ -49,3 +49,4 @@ default_roles:
   - helm
   - certbot
   - github-cli
+  - twitch-cli
