@@ -64,7 +64,7 @@ local function init()
   local lspconfig_servers = {
     "cssls",
     "elixirls",
-    'jsonnet_ls',
+    "jsonnet_ls",
     "sqlls",
   }
 

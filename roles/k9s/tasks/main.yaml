@@ -8,11 +8,11 @@
 
 - name: Directory
   ansible.builtin.file:
-    mode: '0755'
+    mode: "0755"
     path: "{{ ansible_user_dir }}/.config/k9s"
     state: directory
 
 - name: skin.yml
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.config/k9s/skin.yml"
-    src: "skin.yml" 
+    src: "skin.yml"

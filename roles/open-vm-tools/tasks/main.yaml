@@ -19,4 +19,3 @@
     name: vmware-vmblock-fuse
     state: started
   become: yes
-

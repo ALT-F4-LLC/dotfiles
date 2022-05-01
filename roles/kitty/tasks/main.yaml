@@ -17,7 +17,7 @@
     dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
     src: "kitty.conf.j2"
 
-- name: Themes 
+- name: Themes
   copy:
     dest: "{{ ansible_user_dir }}/.config/kitty"
     src: "{{ kitty_config_item }}"
