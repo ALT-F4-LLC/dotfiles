@@ -4,6 +4,7 @@
     name:
       - git-filter-repo
       - jq
+      - jre-openjdk
       - dog
       - open-iscsi
       - nfs-utils
