@@ -1,0 +1,12 @@
+---
+- name: Install
+  community.general.snap:
+    name: "{{ item }}"
+    classic: yes
+  become: yes
+  with_items:
+    - datagrip
+    - goland
+    - pycharm-professional
+    - rider
+    - webstorm

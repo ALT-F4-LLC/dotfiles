@@ -1,6 +1,0 @@
----
-- name: Install
-  community.general.snap:
-    name: datagrip
-    classic: yes
-  become: yes

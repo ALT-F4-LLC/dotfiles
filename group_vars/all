@@ -36,7 +36,7 @@ default_roles:
   - httpie
   - nodejs
   - go
-  - datagrip
+  - jetbrains
   - drone-cli
   - jsonnet
   - notion-app
