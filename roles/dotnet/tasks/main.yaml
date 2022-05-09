@@ -1,0 +1,12 @@
+---
+- name: Install
+  ansible.builtin.package:
+    name: "{{ dotnet_item }}"
+    state: latest
+  become: yes
+  loop_control:
+      loop_var: dotnet_item
+  with_items:
+    - dotnet-runtime
+    - dotnet-sdk
+    - mono
