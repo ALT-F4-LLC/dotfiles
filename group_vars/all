@@ -51,3 +51,4 @@ default_roles:
   - github-cli
   - twitch-cli
   - dotnet
+  - knative-client

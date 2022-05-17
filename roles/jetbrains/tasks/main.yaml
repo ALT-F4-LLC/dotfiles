@@ -1,9 +1,11 @@
 ---
 - name: Install
   community.general.snap:
-    name: "{{ item }}"
+    name: "{{ jetbrains_item }}"
     classic: yes
   become: yes
+  loop_control:
+    loop_var: jetbrains_item
   with_items:
     - datagrip
     - goland

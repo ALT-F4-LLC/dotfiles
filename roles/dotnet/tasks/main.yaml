@@ -5,7 +5,7 @@
     state: latest
   become: yes
   loop_control:
-      loop_var: dotnet_item
+    loop_var: dotnet_item
   with_items:
     - dotnet-runtime
     - dotnet-sdk
