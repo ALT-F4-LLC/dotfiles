@@ -52,3 +52,4 @@ default_roles:
   - twitch-cli
   - dotnet
   - knative-client
+  - rust
