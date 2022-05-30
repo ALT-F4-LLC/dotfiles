@@ -74,6 +74,7 @@ local function init()
     "gopls",
     "html",
     "jsonls",
+    "prismals",
     "pylsp",
     "rust_analyzer",
     "sumneko_lua",

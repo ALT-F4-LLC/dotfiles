@@ -49,6 +49,7 @@ local function packer_startup()
       require'TheAltF4Stream.plugins.lspconfig'.init()
     end
   }
+  use 'pantharshit00/vim-prisma'
   use 'hashivim/vim-terraform'
 
   -- Treesitter

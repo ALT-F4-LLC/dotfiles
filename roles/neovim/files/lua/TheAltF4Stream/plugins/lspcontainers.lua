@@ -46,11 +46,11 @@ local function setup(config, server)
     config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
   end
 
-  if server == "graphql" then
+  if server == "gopls" then
     config.cmd = lspcontainers.command(server)
   end
 
-  if server == "gopls" then
+  if server == "graphql" then
     config.cmd = lspcontainers.command(server)
   end
 
@@ -67,13 +67,17 @@ local function setup(config, server)
     config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
   end
 
-  if server == "pylsp" then
+  if server == "prismals" then
+    config.before_init = function(params)
+      params.processId = vim.NIL
+    end
+
     config.cmd = lspcontainers.command(server)
+    config.root_dir = util.root_pattern(".git", vim.fn.getcwd())
   end
 
-  if server == "sumneko_lua" then
+  if server == "pylsp" then
     config.cmd = lspcontainers.command(server)
-    config.settings = lua_settings
   end
 
   if server == "rust_analyzer" then
@@ -83,6 +87,11 @@ local function setup(config, server)
     vim.api.nvim_exec([[
       autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText", enabled = {"TypeHint", "ChainingHint", "ParameterHint" } }
     ]], false)
+  end
+
+  if server == "sumneko_lua" then
+    config.cmd = lspcontainers.command(server)
+    config.settings = lua_settings
   end
 
   if server == "terraformls" then
