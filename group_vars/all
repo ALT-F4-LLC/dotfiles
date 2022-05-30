@@ -1,55 +1,55 @@
 default_roles:
   - system
-  - open-vm-tools
-  - ssh
-  - firefox
-  - mimeapps
-  - nitrogen
-  - i3
-  - docker
-  - pyenv
-  - kitty
+  - aws-cli
+  - azure-cli
   - bat
-  - zsh
-  - oh-my-zsh
-  - tmux
-  - oh-my-tmux
-  - ripgrep
-  - nnn
-  - git
   - bottom
+  - certbot
+  - circleci-cli
+  - discord
+  - docker
+  - doppler-cli
+  - dotnet
+  - drone-cli
+  - firefox
+  - git
+  - github-cli
+  - go
+  - helm
+  - httpie
+  - i3
+  - jetbrains
+  - jsonnet
   - k9s
+  - kind
+  - kitty
+  - knative-client
+  - kubectl
   - lazydocker
   - lazygit
-  - neovim
-  - slack
-  - twingate
-  - pulumi
-  - kubectl
-  - nvm
-  - postman
-  - visual-studio-code
-  - smbclient
-  - discord
-  - aws-cli
-  - spotify
-  - httpie
-  - nodejs
-  - go
-  - jetbrains
-  - drone-cli
-  - jsonnet
-  - notion-app
-  - terraform
-  - azure-cli
-  - kind
-  - circleci-cli
-  - doppler-cli
   - lens
-  - helm
-  - certbot
-  - github-cli
-  - twitch-cli
-  - dotnet
-  - knative-client
+  - mimeapps
+  - neovim
+  - nitrogen
+  - nnn
+  - nodejs
+  - notion-app
+  - nvm
+  - oh-my-tmux
+  - oh-my-zsh
+  - open-vm-tools
+  - postman
+  - pulumi
+  - pyenv
+  - ripgrep
   - rust
+  - slack
+  - smbclient
+  - spotify
+  - ssh
+  - terraform
+  - tmux
+  - twingate
+  - twitch-cli
+  - visual-studio-code
+  - zsh

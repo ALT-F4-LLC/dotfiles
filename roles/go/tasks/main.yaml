@@ -9,8 +9,11 @@
 - name: Install tools
   kewlfft.aur.aur:
     use: yay
+    state: latest
     name:
       - gotestsum
+  become: yes
+  become_user: aur_builder
 
 - name: Config folder
   ansible.builtin.file:
