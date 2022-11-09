@@ -27,7 +27,7 @@
   make:
     chdir: "{{ ansible_user_dir }}/Development/repository/github.com/neovim/neovim"
     params:
-      CMAKE_BUILD_TYPE: RelWithDebInfo
+      CMAKE_BUILD_TYPE: "{{ neovim_buildtype | default('RelWithDebInfo') }}"
   when: clone.changed
 
 - name: Install
